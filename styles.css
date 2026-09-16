@@ -1,0 +1,342 @@
+:root {
+    --primary-color: #5B0C1E; /* Deep Burgundy / Kapeira Red */
+    --primary-light: #7A1229;
+    --background-color: #FAF7F2;
+    --card-bg: #FFFFFF;
+    --text-main: #2A2A2A;
+    --text-muted: #666666;
+    --accent-color: #C19A6B; /* Optional gold/tan accent */
+    
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+    
+    --border-radius: 12px;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--background-color);
+    color: var(--text-main);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Typography */
+h1, h2, h3, h4, .brand-name {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+}
+
+.brand-name {
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(to bottom, var(--primary-color), var(--primary-light));
+    color: white;
+    text-align: center;
+    padding: 4rem 1rem;
+}
+
+.hero .brand-name {
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.brand-tagline {
+    font-size: 1.1rem;
+    font-weight: 300;
+    opacity: 0.9;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Loyalty Banner */
+.loyalty-banner {
+    background-color: var(--card-bg);
+    margin: -2rem auto 2rem;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    max-width: 90%;
+    text-align: center;
+    position: relative;
+    border-top: 4px solid var(--primary-color);
+}
+
+.loyalty-banner h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.loyalty-steps {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.loyalty-banner p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* Navigation */
+.category-nav {
+    position: sticky;
+    top: 0;
+    background-color: rgba(250, 247, 242, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    padding: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    scrollbar-width: none; /* Firefox */
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    margin-bottom: 2rem;
+}
+
+.category-nav::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+}
+
+.nav-btn {
+    background: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 0.5rem 1.2rem;
+    border-radius: 30px;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.nav-btn.active, .nav-btn:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Menu Container */
+.menu-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem 4rem;
+}
+
+.category-section {
+    margin-bottom: 3rem;
+    scroll-margin-top: 80px; /* Offset for sticky nav */
+}
+
+.category-title {
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.category-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+.category-desc {
+    text-align: center;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+.subcategory {
+    margin-bottom: 2.5rem;
+}
+
+.subcategory-title {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+}
+
+/* Menu Items */
+.items-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .items-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+.menu-item {
+    background: var(--card-bg);
+    padding: 1.2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    transition: var(--transition);
+    border: 1px solid transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    border-color: rgba(91, 12, 30, 0.1);
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.item-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+    line-height: 1.3;
+}
+
+.item-price-container {
+    text-align: right;
+    min-width: 80px;
+}
+
+.item-price {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 0.9rem;
+    display: block;
+}
+
+.item-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+}
+
+.save-badge {
+    background-color: #2e7d32;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 0.5rem;
+}
+
+/* Combo Styling specific overrides */
+.combo-item {
+    border: 2px solid rgba(91, 12, 30, 0.2);
+    text-align: center;
+    align-items: center;
+}
+
+.combo-item .item-header {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.combo-item .item-name {
+    font-size: 1.2rem;
+}
+
+.combo-item .item-price {
+    font-size: 1.8rem;
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 4rem 1rem;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.footer-content .brand-name {
+    color: white;
+    margin-bottom: 1.5rem;
+}
+
+.locations {
+    list-style: none;
+    margin: 1rem 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.locations li {
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+.footer-note {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: white;
+    color: var(--primary-color);
+    text-decoration: none;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-primary:hover {
+    background-color: var(--background-color);
+    transform: translateY(-2px);
+}
